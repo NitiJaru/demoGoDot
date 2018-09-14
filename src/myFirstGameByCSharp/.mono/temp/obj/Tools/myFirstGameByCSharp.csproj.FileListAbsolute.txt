@@ -1,0 +1,6 @@
+C:\Users\earnd\Downloads\GoDotProjects\myFirstGameByCSharp\.mono\temp\bin\Tools\myFirstGameByCSharp.dll
+C:\Users\earnd\Downloads\GoDotProjects\myFirstGameByCSharp\.mono\temp\bin\Tools\myFirstGameByCSharp.pdb
+C:\Users\earnd\Downloads\GoDotProjects\myFirstGameByCSharp\.mono\temp\obj\Tools\myFirstGameByCSharp.csprojAssemblyReference.cache
+C:\Users\earnd\Downloads\GoDotProjects\myFirstGameByCSharp\.mono\temp\obj\Tools\myFirstGameByCSharp.csproj.CoreCompileInputs.cache
+C:\Users\earnd\Downloads\GoDotProjects\myFirstGameByCSharp\.mono\temp\obj\Tools\myFirstGameByCSharp.dll
+C:\Users\earnd\Downloads\GoDotProjects\myFirstGameByCSharp\.mono\temp\obj\Tools\myFirstGameByCSharp.pdb

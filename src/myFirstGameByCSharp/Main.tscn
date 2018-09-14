@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Main.cs" type="Script" id=1]
+[ext_resource path="res://Mob.tscn" type="PackedScene" id=2]
+[ext_resource path="res://background.png" type="Texture" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sound_background.wav" type="AudioStream" id=6]
+[ext_resource path="res://sound_death.wav" type="AudioStream" id=7]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.0674248, -0.00175381, 0, 0, 0, 0, 480.007, -0.00578928, 0, 0, 0, 0, 480.334, 719.47, 0, 0, 0, 0, -0.400116, 718.394, 0, 0, 0, 0, -0.0674248, -0.00175381 )
+}
+
+[node name="Main" type="Node" index="0"]
+
+script = ExtResource( 1 )
+Mob = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 240.074, 359.651 )
+scale = Vector2( 0.689027, 0.686889 )
+texture = ExtResource( 3 )
+
+[node name="Player" parent="." index="1" instance=ExtResource( 4 )]
+
+[node name="MobTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
+[node name="ScoreTimer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="StartTimer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="StartPosition" type="Position2D" parent="." index="5"]
+
+position = Vector2( 240, 450 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MobPath" type="Path2D" parent="." index="6"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 1 )
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" index="0"]
+
+position = Vector2( -0.0674248, -0.00175381 )
+rotation = -8.40588e-006
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="HUD" parent="." index="7" instance=ExtResource( 5 )]
+
+[node name="BackgroundSound" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="Hit" from="Player" to="." method="GameOver"]
+
+[connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
+
+[connection signal="timeout" from="ScoreTimer" to="." method="OnScoreTimerTimeout"]
+
+[connection signal="timeout" from="StartTimer" to="." method="OnStartTimerTimeout"]
+
+[connection signal="StartGame" from="HUD" to="." method="NewGame"]
+
+[connection signal="finished" from="BackgroundSound" to="." method="OnBackgroundSoundFinished"]
+
+

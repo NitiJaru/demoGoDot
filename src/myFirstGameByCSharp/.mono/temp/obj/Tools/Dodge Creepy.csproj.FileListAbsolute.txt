@@ -1,0 +1,12 @@
+C:\Users\earnd\Downloads\GoDotProjects\myFirstGameByCSharp\.mono\temp\bin\Tools\Dodge Creepy.dll
+C:\Users\earnd\Downloads\GoDotProjects\myFirstGameByCSharp\.mono\temp\bin\Tools\Dodge Creepy.pdb
+C:\Users\earnd\Downloads\GoDotProjects\myFirstGameByCSharp\.mono\temp\obj\Tools\Dodge Creepy.csprojAssemblyReference.cache
+C:\Users\earnd\Downloads\GoDotProjects\myFirstGameByCSharp\.mono\temp\obj\Tools\Dodge Creepy.csproj.CoreCompileInputs.cache
+C:\Users\earnd\Downloads\GoDotProjects\myFirstGameByCSharp\.mono\temp\obj\Tools\Dodge Creepy.dll
+C:\Users\earnd\Downloads\GoDotProjects\myFirstGameByCSharp\.mono\temp\obj\Tools\Dodge Creepy.pdb
+C:\Git\demoGoDot\src\myFirstGameByCSharp\.mono\temp\bin\Tools\Dodge Creepy.dll
+C:\Git\demoGoDot\src\myFirstGameByCSharp\.mono\temp\bin\Tools\Dodge Creepy.pdb
+C:\Git\demoGoDot\src\myFirstGameByCSharp\.mono\temp\obj\Tools\Dodge Creepy.csprojAssemblyReference.cache
+C:\Git\demoGoDot\src\myFirstGameByCSharp\.mono\temp\obj\Tools\Dodge Creepy.csproj.CoreCompileInputs.cache
+C:\Git\demoGoDot\src\myFirstGameByCSharp\.mono\temp\obj\Tools\Dodge Creepy.dll
+C:\Git\demoGoDot\src\myFirstGameByCSharp\.mono\temp\obj\Tools\Dodge Creepy.pdb
