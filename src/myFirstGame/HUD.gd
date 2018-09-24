@@ -24,7 +24,8 @@ func update_score(score):
 
 func _on_StartButton_pressed():
     $StartButton.hide()
-    emit_signal("start_game")
+    emit_signal("start_game")	
+    $ButtonSound.play()
     pass # replace with function body
 
 func _on_MessageTimer_timeout():
