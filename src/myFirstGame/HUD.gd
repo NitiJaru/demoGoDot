@@ -2,7 +2,6 @@ extends CanvasLayer
 
 signal start_game
 
-
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -26,11 +25,8 @@ func update_score(score):
 func _on_StartButton_pressed():
     $StartButton.hide()
     emit_signal("start_game")
+    pass # replace with function body
 
 func _on_MessageTimer_timeout():
     $MessageLabel.hide()
-	
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+    pass # replace with function body

@@ -7,7 +7,7 @@
 
 size = 64
 use_mipmaps = false
-use_filter = true
+use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
@@ -15,7 +15,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 size = 64
 use_mipmaps = false
-use_filter = true
+use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
@@ -116,7 +116,7 @@ _sections_unfolded = [ "Margin", "custom_fonts" ]
 
 process_mode = 1
 wait_time = 2.0
-one_shot = false
+one_shot = true
 autostart = false
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
