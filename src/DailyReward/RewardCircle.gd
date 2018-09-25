@@ -3,14 +3,7 @@ extends Area2D
 signal finishplay
 
 func _ready():
-	$Unselect.show()
-	$Selected.hide()
 	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
 
 func _playanimation():
 	$Unselect.hide()
@@ -22,3 +15,12 @@ func _on_PlayTimer_timeout():
 	$Selected.hide()
 	emit_signal("finishplay")
 	pass # replace with function body
+
+func init(url):
+	$Unselect.show()
+	$Selected.hide()
+	$RewardSprite.hide()
+	$RewardSprite.texture = url
+
+func displayreward():
+	$RewardSprite.show()

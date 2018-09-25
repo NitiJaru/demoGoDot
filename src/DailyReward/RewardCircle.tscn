@@ -24,6 +24,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Selected" type="Sprite" parent="." index="1"]
 
+visible = false
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
@@ -33,6 +34,12 @@ process_mode = 1
 wait_time = 0.5
 one_shot = true
 autostart = false
+
+[node name="RewardSprite" type="Sprite" parent="." index="3"]
+
+visible = false
+scale = Vector2( 0.4, 0.4 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="timeout" from="PlayTimer" to="." method="_on_PlayTimer_timeout"]
 
