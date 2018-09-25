@@ -8,6 +8,7 @@ func _ready():
 func _playanimation():
 	$Unselect.hide()
 	$Selected.show()
+	$AudioStreamPlayer2D.play()
 	$PlayTimer.start()
 
 func _on_PlayTimer_timeout():
