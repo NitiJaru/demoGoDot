@@ -13,6 +13,7 @@ func show_message(text):
     $MessageTimer.start()
 
 func show_game_over():
+    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
     show_message("Game Over")
     yield($MessageTimer, "timeout")
     $StartButton.show()
@@ -26,6 +27,7 @@ func _on_StartButton_pressed():
     $StartButton.hide()
     emit_signal("start_game")	
     $ButtonSound.play()
+    Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
     pass # replace with function body
 
 func _on_MessageTimer_timeout():

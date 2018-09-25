@@ -23,7 +23,7 @@ func game_over():
 
 func new_game():
     score = 0
-    $Player.start($StartPosition.position)
+    $Player.start()
     $StartTimer.start()
     $HUD.update_score(score)
     $HUD.show_message("Get Ready")

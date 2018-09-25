@@ -15,7 +15,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -0.0228882, -0.0706525, 0, 0, 0, 0, 480.019, 0.111965, 0, 0, 0, 0, 481.059, 719.409, 0, 0, 0, 0, -0.276482, 719.897, 0, 0, 0, 0, -0.0228882, -0.0706525 )
 }
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 Mob = ExtResource( 2 )
@@ -50,12 +50,7 @@ wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="StartPosition" type="Position2D" parent="." index="5"]
-
-position = Vector2( 240, 450 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="MobPath" type="Path2D" parent="." index="6"]
+[node name="MobPath" type="Path2D" parent="." index="5"]
 
 editor/display_folded = true
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
@@ -64,7 +59,7 @@ curve = SubResource( 1 )
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" index="0"]
 
 position = Vector2( -0.0228882, -0.0706525 )
-rotation = 0.000380422
+rotation = 0.000380417
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -73,9 +68,9 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="HUD" parent="." index="7" instance=ExtResource( 5 )]
+[node name="HUD" parent="." index="6" instance=ExtResource( 5 )]
 
-[node name="BackgroundSound" type="AudioStreamPlayer" parent="." index="8"]
+[node name="BackgroundSound" type="AudioStreamPlayer" parent="." index="7"]
 
 stream = ExtResource( 6 )
 volume_db = 0.0
@@ -84,7 +79,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="DeathSound" type="AudioStreamPlayer" parent="." index="9"]
+[node name="DeathSound" type="AudioStreamPlayer" parent="." index="8"]
 
 stream = ExtResource( 7 )
 volume_db = 0.0

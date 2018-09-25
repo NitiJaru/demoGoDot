@@ -10,32 +10,36 @@ func _ready():
 	hide()
 	pass
 
-func _process(delta):
-    var velocity = Vector2() # The player's movement vector.
-    if Input.is_action_pressed("ui_right"):
-        velocity.x += 1
-    if Input.is_action_pressed("ui_left"):
-        velocity.x -= 1
-    if Input.is_action_pressed("ui_down"):
-        velocity.y += 1
-    if Input.is_action_pressed("ui_up"):
-        velocity.y -= 1
-    if velocity.length() > 0:
-        velocity = velocity.normalized() * speed
-        $AnimatedSprite.play()
-    else:
-        $AnimatedSprite.stop()
-    position += velocity * delta
-    position.x = clamp(position.x, 0, screensize.x)
-    position.y = clamp(position.y, 0, screensize.y)
-	
-    if velocity.x != 0:
-        $AnimatedSprite.animation = "right"
-        $AnimatedSprite.flip_v = false
-        $AnimatedSprite.flip_h = velocity.x < 0
-    elif velocity.y != 0:
-        $AnimatedSprite.animation = "up"
-        $AnimatedSprite.flip_v = velocity.y > 0
+func _input(event):
+   if event is InputEventMouseMotion:
+      position = event.position
+
+#func _process(delta):
+#    var velocity = Vector2() # The player's movement vector.
+#    if Input.is_action_pressed("ui_right"):
+#        velocity.x += 1
+#    if Input.is_action_pressed("ui_left"):
+#        velocity.x -= 1
+#    if Input.is_action_pressed("ui_down"):
+#        velocity.y += 1
+#    if Input.is_action_pressed("ui_up"):
+#        velocity.y -= 1
+#    if velocity.length() > 0:
+#        velocity = velocity.normalized() * speed
+#        $AnimatedSprite.play()
+#    else:
+#        $AnimatedSprite.stop()
+#    position += velocity * delta
+#    position.x = clamp(position.x, 0, screensize.x)
+#    position.y = clamp(position.y, 0, screensize.y)
+#
+#    if velocity.x != 0:
+#        $AnimatedSprite.animation = "right"
+#        $AnimatedSprite.flip_v = false
+#        $AnimatedSprite.flip_h = velocity.x < 0
+#    elif velocity.y != 0:
+#        $AnimatedSprite.animation = "up"
+#        $AnimatedSprite.flip_v = velocity.y > 0
 
 func _on_Player_body_entered(body):
     hide() # Player disappears after being hit.
@@ -43,7 +47,6 @@ func _on_Player_body_entered(body):
     $CollisionShape2D.disabled = true
     pass # replace with function body
 
-func start(pos):
-    position = pos
+func start():
     show()
     $CollisionShape2D.disabled = false
