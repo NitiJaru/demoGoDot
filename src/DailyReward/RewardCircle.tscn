@@ -30,7 +30,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="PlayTimer" type="Timer" parent="." index="2"]
 
 process_mode = 1
-wait_time = 0.05
+wait_time = 0.5
 one_shot = true
 autostart = false
 
