@@ -2,45 +2,60 @@ extends Node
 
 var rotate_round
 var rotate_round_input
-var reward_slot_circle
+var reward_slot
 var animated_speed
 var isCompletedRoateRound
 
-func initigame():
-	
+func initigame(isAdvance):
 	# Reset isCompletedRoateRound for new game
 	isCompletedRoateRound = false
 	
 	# Set Reward images
 	setrewardimage()
 	
-	# Set rotate times
-	var minimumRoateTimes = 1
-	var roateTimes = int($HUDContainer/RoateContainer/RoateLineEdit.text)
-	if(roateTimes < minimumRoateTimes): rotate_round_input = minimumRoateTimes
-	else: rotate_round_input = roateTimes
+	if(isAdvance): initigame_advance()
+	else: initigame_basic()
+
+func initigame_basic():
+	# Random rotate prefix
+	var randomRotateRound = randi()%3+1
+	rotate_round = randomRotateRound
 	
+	# Random rotate times
+	var randomRotateRoundInput = randi()%2+1
+	rotate_round_input = randomRotateRoundInput
+	
+	# Random reward slot
+	var randomRewardSlot = randi()%6+1
+	reward_slot = randomRewardSlot
+	
+	# Set animate speed
+	animated_speed = 0.15
+	setanimated(animated_speed)
+
+func initigame_advance():
 	# Set rotate prefix
 	var prefixRotateTimes = 2
 	rotate_round = prefixRotateTimes	
 	
+	# Set rotate times
+	var minimumRotateTimes = 1
+	var rotateTimes = int($HUDContainer/AdvanceContainer/RoateContainer/RoateLineEdit.text)
+	if(rotateTimes < minimumRotateTimes): rotate_round_input = minimumRotateTimes
+	else: rotate_round_input = rotateTimes
+	
 	# Set reward slot
 	var minimumRewardSlot = 1
 	var maximumRewardSlot = 6
-	var rewardSlot = int($HUDContainer/RewardContainer/RewardLineEdit.text)
-	if(rewardSlot < minimumRewardSlot): reward_slot_circle = minimumRewardSlot
-	elif(rewardSlot > maximumRewardSlot): reward_slot_circle = maximumRewardSlot
-	else: reward_slot_circle = rewardSlot
+	var rewardSlot = int($HUDContainer/AdvanceContainer/RewardContainer/RewardLineEdit.text)
+	if(rewardSlot < minimumRewardSlot): reward_slot = minimumRewardSlot
+	elif(rewardSlot > maximumRewardSlot): reward_slot = maximumRewardSlot
+	else: reward_slot = rewardSlot
 	
 	# Set animate speed
-	animated_speed = float($HUDContainer/RoateSpeedContainer/RoateSpeedLineEdit.text)
+	animated_speed = float($HUDContainer/AdvanceContainer/RoateSpeedContainer/RoateSpeedLineEdit.text)
 	setanimated(animated_speed)
 
-func _on_StartButton_pressed():
-	initigame()
-	$RewardCircle_1._playanimation()
-	$HUDContainer.hide()
-	pass # replace with function body
 
 func _on_RewardCircle_1_finishplay():calculateanimation(1)
 func _on_RewardCircle_2_finishplay():calculateanimation(2)
@@ -59,7 +74,7 @@ func calculateanimation(number):
 		animated_speed += 0.25
 		setanimated(animated_speed)
 		$RewardCircle_1._playanimation()
-	elif((isCompletedRoateRound && reward_slot_circle != number) || !isOutOfRound):
+	elif((isCompletedRoateRound && reward_slot != number) || !isOutOfRound):
 		animated_speed += 0.075
 		setanimated(animated_speed)
 		playanimation(number)
@@ -100,3 +115,21 @@ func displayreward(number):
 	elif(number == 4):$RewardCircle_4.displayreward()
 	elif(number == 5):$RewardCircle_5.displayreward()
 	elif(number == 6):$RewardCircle_6.displayreward()
+
+func _on_RandomButton_pressed():
+	$HUDContainer/BasicContainer.show()
+	$HUDContainer/AdvanceContainer.hide()
+
+func _on_ExactlyButton_pressed():
+	$HUDContainer/BasicContainer.hide()
+	$HUDContainer/AdvanceContainer.show()
+
+func _on_BasicStartButton_pressed():
+	initigame(false)
+	$RewardCircle_1._playanimation()
+	$HUDContainer.hide()
+
+func _on_AdvanceStartButton_pressed():
+	initigame(true)
+	$RewardCircle_1._playanimation()
+	$HUDContainer.hide()
