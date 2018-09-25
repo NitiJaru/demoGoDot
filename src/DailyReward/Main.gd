@@ -1,7 +1,7 @@
 extends Node
 
-var roate_round
-var roate_round_input
+var rotate_round
+var rotate_round_input
 var reward_slot_circle
 var animated_speed
 var isCompletedRoateRound
@@ -14,9 +14,9 @@ func initigame():
 	# Set roate times
 	var minimumRoateTimes = 1
 	var roateTimes = int($HUDContainer/RoateContainer/RoateLineEdit.text)
-	if(roateTimes < minimumRoateTimes): roate_round_input = minimumRoateTimes
-	else: roate_round_input = roateTimes
-	roate_round = 2	
+	if(roateTimes < minimumRoateTimes): rotate_round_input = minimumRoateTimes
+	else: rotate_round_input = roateTimes
+	rotate_round = 2	
 	
 	# Set reward slot
 	var minimumRewardSlot = 1
@@ -44,12 +44,12 @@ func _on_RewardCircle_5_finishplay():calculateanimation(5)
 func _on_RewardCircle_6_finishplay():calculateanimation(6)
 
 func calculateanimation(number):
-	var isOutOfRound = roate_round < 0
+	var isOutOfRound = rotate_round < 0
 	if(!isCompletedRoateRound && !isOutOfRound):
 		playanimation(number)
 	elif(!isCompletedRoateRound):
 		isCompletedRoateRound = true
-		roate_round = (roate_round_input - 2)
+		rotate_round = (rotate_round_input - 2)
 		animated_speed += 0.25
 		setanimated(animated_speed)
 		$RewardCircle_1._playanimation()
@@ -76,4 +76,4 @@ func playanimation(number):
 	elif(number == 5):$RewardCircle_6._playanimation()
 	elif(number == 6):
 		$RewardCircle_1._playanimation()
-		roate_round -= 1
+		rotate_round -= 1
