@@ -1,18 +1,10 @@
 extends Node
 
 var roate_round
+var roate_round_input
 var reward_slot_circle
 var animated_speed
 var isCompletedRoateRound
-var speed_increament
-
-func _ready():
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
 
 func initigame():
 	
@@ -20,10 +12,11 @@ func initigame():
 	isCompletedRoateRound = false
 	
 	# Set roate times
-	var minimumRoateTimes = 2
+	var minimumRoateTimes = 1
 	var roateTimes = int($HUDContainer/RoateContainer/RoateLineEdit.text)
-	if(roateTimes < minimumRoateTimes): roate_round = minimumRoateTimes
-	else: roate_round = roateTimes	
+	if(roateTimes < minimumRoateTimes): roate_round_input = minimumRoateTimes
+	else: roate_round_input = roateTimes
+	roate_round = 2	
 	
 	# Set reward slot
 	var minimumRewardSlot = 1
@@ -53,37 +46,17 @@ func _on_RewardCircle_6_finishplay():calculateanimation(6)
 func calculateanimation(number):
 	var isOutOfRound = roate_round < 0
 	if(!isCompletedRoateRound && !isOutOfRound):
-		
-		if(isCompletedRoateRound):
-			animated_speed += 0.05
-			setanimated(animated_speed)
-		
-		if(number == 1):$RewardCircle_2._playanimation()
-		elif(number == 2):$RewardCircle_3._playanimation()
-		elif(number == 3):$RewardCircle_4._playanimation()
-		elif(number == 4):$RewardCircle_5._playanimation()
-		elif(number == 5):$RewardCircle_6._playanimation()
-		elif(number == 6):
-			$RewardCircle_1._playanimation()
-			roate_round -= 1
+		playanimation(number)
 	elif(!isCompletedRoateRound):
 		isCompletedRoateRound = true
-		roate_round = 2
-		speed_increament = animated_speed/2
-		animated_speed += speed_increament
+		roate_round = (roate_round_input - 2)
+		animated_speed += 0.25
 		setanimated(animated_speed)
 		$RewardCircle_1._playanimation()
 	elif((isCompletedRoateRound && reward_slot_circle != number) || !isOutOfRound):
-		animated_speed += 0.05
+		animated_speed += 0.075
 		setanimated(animated_speed)
-		if(number == 1):$RewardCircle_2._playanimation()
-		elif(number == 2):$RewardCircle_3._playanimation()
-		elif(number == 3):$RewardCircle_4._playanimation()
-		elif(number == 4):$RewardCircle_5._playanimation()
-		elif(number == 5):$RewardCircle_6._playanimation()
-		elif(number == 6):
-			$RewardCircle_1._playanimation()
-			roate_round -= 1
+		playanimation(number)
 	else:
 		$HUDContainer.show()
 
@@ -94,3 +67,13 @@ func setanimated(number):
 	$RewardCircle_4/PlayTimer.wait_time = number
 	$RewardCircle_5/PlayTimer.wait_time = number
 	$RewardCircle_6/PlayTimer.wait_time = number
+
+func playanimation(number):
+	if(number == 1):$RewardCircle_2._playanimation()
+	elif(number == 2):$RewardCircle_3._playanimation()
+	elif(number == 3):$RewardCircle_4._playanimation()
+	elif(number == 4):$RewardCircle_5._playanimation()
+	elif(number == 5):$RewardCircle_6._playanimation()
+	elif(number == 6):
+		$RewardCircle_1._playanimation()
+		roate_round -= 1
