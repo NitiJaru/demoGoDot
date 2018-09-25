@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://RewardCircle.gd" type="Script" id=1]
+[ext_resource path="res://img/daily_unselect.png" type="Texture" id=2]
+[ext_resource path="res://img/daily_selected.png" type="Texture" id=3]
+
+[node name="RewardCircle" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Unselect" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Selected" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="PlayTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 0.05
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="PlayTimer" to="." method="_on_PlayTimer_timeout"]
+
+
