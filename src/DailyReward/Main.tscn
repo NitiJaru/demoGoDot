@@ -46,8 +46,41 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin" ]
 
-[node name="HUDContainer" type="Container" parent="GameContainer" index="0"]
+[node name="RewardCircle_1" parent="GameContainer" index="0" instance=ExtResource( 3 )]
 
+position = Vector2( 348, 48 )
+
+[node name="RewardCircle_2" parent="GameContainer" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 548, 160 )
+
+[node name="RewardCircle_3" parent="GameContainer" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 598, 323 )
+
+[node name="RewardCircle_4" parent="GameContainer" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 548, 498 )
+
+[node name="RewardCircle_5" parent="GameContainer" index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 348, 598 )
+
+[node name="RewardCircle_6" parent="GameContainer" index="5" instance=ExtResource( 3 )]
+
+position = Vector2( 123, 498 )
+
+[node name="RewardCircle_7" parent="GameContainer" index="6" instance=ExtResource( 3 )]
+
+position = Vector2( 48, 323 )
+
+[node name="RewardCircle_8" parent="GameContainer" index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 123, 160 )
+
+[node name="HUDContainer" type="Container" parent="." index="2"]
+
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -64,7 +97,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="SwitchModeButton" type="Button" parent="GameContainer/HUDContainer" index="0"]
+[node name="SwitchModeButton" type="Button" parent="HUDContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -87,7 +120,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Margin" ]
 
-[node name="StartButton" type="Button" parent="GameContainer/HUDContainer" index="1"]
+[node name="StartButton" type="Button" parent="HUDContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 1.0
@@ -110,8 +143,9 @@ flat = false
 align = 1
 _sections_unfolded = [ "Margin" ]
 
-[node name="ExactlyContainer" type="Container" parent="GameContainer/HUDContainer" index="2"]
+[node name="ExactlyContainer" type="Container" parent="HUDContainer" index="2"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 1.0
@@ -127,7 +161,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin" ]
 
-[node name="RoateContainer" type="Container" parent="GameContainer/HUDContainer/ExactlyContainer" index="0"]
+[node name="RoateContainer" type="Container" parent="HUDContainer/ExactlyContainer" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -143,7 +177,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin" ]
 
-[node name="Label" type="Label" parent="GameContainer/HUDContainer/ExactlyContainer/RoateContainer" index="0"]
+[node name="Label" type="Label" parent="HUDContainer/ExactlyContainer/RoateContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -163,7 +197,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin" ]
 
-[node name="NumberControlContainer" type="Container" parent="GameContainer/HUDContainer/ExactlyContainer/RoateContainer" index="1"]
+[node name="NumberControlContainer" type="Container" parent="HUDContainer/ExactlyContainer/RoateContainer" index="1"]
 
 anchor_left = 1.0
 anchor_top = 0.0
@@ -178,7 +212,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin" ]
 
-[node name="DecrementDecreamentButton" type="Button" parent="GameContainer/HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer" index="0"]
+[node name="DecrementButton" type="Button" parent="HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -200,7 +234,7 @@ text = "<"
 flat = false
 align = 1
 
-[node name="InputLineEdit" type="LineEdit" parent="GameContainer/HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer" index="1"]
+[node name="InputLineEdit" type="LineEdit" parent="HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer" index="1"]
 
 anchor_left = 0.5
 anchor_top = 0.0
@@ -227,7 +261,7 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Margin", "Placeholder" ]
 
-[node name="IncrementButton" type="Button" parent="GameContainer/HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer" index="2"]
+[node name="IncrementButton" type="Button" parent="HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer" index="2"]
 
 anchor_left = 1.0
 anchor_top = 0.0
@@ -249,8 +283,9 @@ text = ">"
 flat = false
 align = 1
 
-[node name="RoateSpeedContainer" type="Container" parent="GameContainer/HUDContainer/ExactlyContainer" index="1"]
+[node name="RoateSpeedContainer" type="Container" parent="HUDContainer/ExactlyContainer" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -265,7 +300,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin" ]
 
-[node name="Label" type="Label" parent="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer" index="0"]
+[node name="Label" type="Label" parent="HUDContainer/ExactlyContainer/RoateSpeedContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -285,7 +320,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin" ]
 
-[node name="NumberControlContainer" type="Container" parent="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer" index="1"]
+[node name="NumberControlContainer" type="Container" parent="HUDContainer/ExactlyContainer/RoateSpeedContainer" index="1"]
 
 anchor_left = 1.0
 anchor_top = 0.0
@@ -300,7 +335,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin" ]
 
-[node name="DecrementDecreamentButton" type="Button" parent="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer" index="0"]
+[node name="DecrementButton" type="Button" parent="HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -322,7 +357,7 @@ text = "<"
 flat = false
 align = 1
 
-[node name="InputLineEdit" type="LineEdit" parent="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer" index="1"]
+[node name="InputLineEdit" type="LineEdit" parent="HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer" index="1"]
 
 anchor_left = 0.5
 anchor_top = 0.0
@@ -349,7 +384,7 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Margin", "Placeholder" ]
 
-[node name="IncrementButton" type="Button" parent="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer" index="2"]
+[node name="IncrementButton" type="Button" parent="HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer" index="2"]
 
 anchor_left = 1.0
 anchor_top = 0.0
@@ -371,9 +406,8 @@ text = ">"
 flat = false
 align = 1
 
-[node name="RewardContainer" type="Container" parent="GameContainer/HUDContainer/ExactlyContainer" index="2"]
+[node name="RewardContainer" type="Container" parent="HUDContainer/ExactlyContainer" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -388,7 +422,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin" ]
 
-[node name="Label" type="Label" parent="GameContainer/HUDContainer/ExactlyContainer/RewardContainer" index="0"]
+[node name="Label" type="Label" parent="HUDContainer/ExactlyContainer/RewardContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -408,7 +442,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin" ]
 
-[node name="NumberControlContainer" type="Container" parent="GameContainer/HUDContainer/ExactlyContainer/RewardContainer" index="1"]
+[node name="NumberControlContainer" type="Container" parent="HUDContainer/ExactlyContainer/RewardContainer" index="1"]
 
 anchor_left = 1.0
 anchor_top = 0.0
@@ -423,7 +457,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin" ]
 
-[node name="DecrementDecreamentButton" type="Button" parent="GameContainer/HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer" index="0"]
+[node name="DecrementButton" type="Button" parent="HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -445,7 +479,7 @@ text = "<"
 flat = false
 align = 1
 
-[node name="InputLineEdit" type="LineEdit" parent="GameContainer/HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer" index="1"]
+[node name="InputLineEdit" type="LineEdit" parent="HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer" index="1"]
 
 anchor_left = 0.5
 anchor_top = 0.0
@@ -472,7 +506,7 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Margin", "Placeholder", "Rect" ]
 
-[node name="IncrementButton" type="Button" parent="GameContainer/HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer" index="2"]
+[node name="IncrementButton" type="Button" parent="HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer" index="2"]
 
 anchor_left = 1.0
 anchor_top = 0.0
@@ -494,54 +528,6 @@ text = ">"
 flat = false
 align = 1
 
-[node name="RewardCircle_1" parent="GameContainer" index="1" instance=ExtResource( 3 )]
-
-position = Vector2( 348, 48 )
-
-[node name="RewardCircle_2" parent="GameContainer" index="2" instance=ExtResource( 3 )]
-
-position = Vector2( 548, 168 )
-
-[node name="RewardCircle_3" parent="GameContainer" index="3" instance=ExtResource( 3 )]
-
-position = Vector2( 598, 323 )
-
-[node name="RewardCircle_4" parent="GameContainer" index="4" instance=ExtResource( 3 )]
-
-position = Vector2( 548, 498 )
-
-[node name="RewardCircle_5" parent="GameContainer" index="5" instance=ExtResource( 3 )]
-
-position = Vector2( 348, 598 )
-
-[node name="RewardCircle_6" parent="GameContainer" index="6" instance=ExtResource( 3 )]
-
-position = Vector2( 123, 498 )
-
-[node name="RewardCircle_7" parent="GameContainer" index="7" instance=ExtResource( 3 )]
-
-position = Vector2( 48, 323 )
-
-[node name="RewardCircle_8" parent="GameContainer" index="8" instance=ExtResource( 3 )]
-
-position = Vector2( 123, 168 )
-
-[connection signal="pressed" from="GameContainer/HUDContainer/SwitchModeButton" to="." method="_on_SwitchModeButton_pressed"]
-
-[connection signal="pressed" from="GameContainer/HUDContainer/StartButton" to="." method="_on_StartButton_pressed"]
-
-[connection signal="pressed" from="GameContainer/HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer/DecrementDecreamentButton" to="." method="_on_RotateDecrementDecreamentButton_pressed"]
-
-[connection signal="pressed" from="GameContainer/HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer/IncrementButton" to="." method="_on_RotateIncrementButton_pressed"]
-
-[connection signal="pressed" from="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer/DecrementDecreamentButton" to="." method="_on_SpeedDecrementDecreamentButton_pressed"]
-
-[connection signal="pressed" from="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer/IncrementButton" to="." method="_on_SpeedIncrementButton_pressed"]
-
-[connection signal="pressed" from="GameContainer/HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer/DecrementDecreamentButton" to="." method="_on_RewardSlotDecrementDecreamentButton_pressed"]
-
-[connection signal="pressed" from="GameContainer/HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer/IncrementButton" to="." method="_on_RewardSlotIncrementButton_pressed"]
-
 [connection signal="finishplay" from="GameContainer/RewardCircle_1" to="." method="_on_RewardCircle_1_finishplay"]
 
 [connection signal="finishplay" from="GameContainer/RewardCircle_2" to="." method="_on_RewardCircle_2_finishplay"]
@@ -557,5 +543,21 @@ position = Vector2( 123, 168 )
 [connection signal="finishplay" from="GameContainer/RewardCircle_7" to="." method="_on_RewardCircle_7_finishplay"]
 
 [connection signal="finishplay" from="GameContainer/RewardCircle_8" to="." method="_on_RewardCircle_8_finishplay"]
+
+[connection signal="pressed" from="HUDContainer/SwitchModeButton" to="." method="_on_SwitchModeButton_pressed"]
+
+[connection signal="pressed" from="HUDContainer/StartButton" to="." method="_on_StartButton_pressed"]
+
+[connection signal="pressed" from="HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer/DecrementButton" to="." method="_on_RotateDecrementButton_pressed"]
+
+[connection signal="pressed" from="HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer/IncrementButton" to="." method="_on_RotateIncrementButton_pressed"]
+
+[connection signal="pressed" from="HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer/DecrementButton" to="." method="_on_SpeedDecrementButton_pressed"]
+
+[connection signal="pressed" from="HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer/IncrementButton" to="." method="_on_SpeedIncrementButton_pressed"]
+
+[connection signal="pressed" from="HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer/DecrementButton" to="." method="_on_RewardSlotDecrementButton_pressed"]
+
+[connection signal="pressed" from="HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer/IncrementButton" to="." method="_on_RewardSlotIncrementButton_pressed"]
 
 

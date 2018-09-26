@@ -3,7 +3,9 @@ extends Area2D
 signal finishplay
 
 func _ready():
-	pass
+	$Unselect.show()
+	$Selected.hide()
+	$RewardSprite.hide()
 
 func _playanimation():
 	$Unselect.hide()
@@ -15,7 +17,6 @@ func _on_PlayTimer_timeout():
 	$Unselect.show()
 	$Selected.hide()
 	emit_signal("finishplay")
-	pass # replace with function body
 
 func init(url):
 	$Unselect.show()
