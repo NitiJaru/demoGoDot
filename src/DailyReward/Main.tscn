@@ -8,88 +8,36 @@
 
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="Container" type="Container" parent="." index="0"]
 
-position = Vector2( 512.699, 383.859 )
-scale = Vector2( 0.63499, 0.769798 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="background" type="Sprite" parent="Container" index="0"]
+
+scale = Vector2( 0.533393, 0.660915 )
 texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
-[node name="HUDContainer" type="Container" parent="." index="1"]
+[node name="GameContainer" type="Container" parent="." index="1"]
 
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 372.0
-margin_top = 264.0
-margin_right = 605.0
-margin_bottom = 502.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Margin" ]
-
-[node name="RandomButton" type="Button" parent="HUDContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 109.0
-margin_bottom = 39.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Random"
-flat = false
-align = 1
-
-[node name="ExactlyButton" type="Button" parent="HUDContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 124.0
-margin_right = 233.0
-margin_bottom = 39.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Exactly"
-flat = false
-align = 1
-
-[node name="BasicContainer" type="Container" parent="HUDContainer" index="2"]
-
-editor/display_folded = true
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -117.5
-margin_top = -191.0
-margin_right = 117.5
+anchor_bottom = 0.5
+margin_left = -323.0
+margin_top = -323.0
+margin_right = 323.0
+margin_bottom = 323.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -98,12 +46,31 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin" ]
 
-[node name="StartButton" type="Button" parent="HUDContainer/BasicContainer" index="0"]
+[node name="HUDContainer" type="Container" parent="GameContainer" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -113.0
+margin_top = -135.0
+margin_right = 156.0
+margin_bottom = 135.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="SwitchModeButton" type="Button" parent="GameContainer/HUDContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -115,259 +82,18 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Start Random"
+text = "Switch Mode"
 flat = false
 align = 1
-
-[node name="AdvanceContainer" type="Container" parent="HUDContainer" index="3"]
-
-editor/display_folded = true
-visible = false
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -117.5
-margin_top = -191.0
-margin_right = 117.5
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 _sections_unfolded = [ "Margin" ]
 
-[node name="RoateContainer" type="Container" parent="HUDContainer/AdvanceContainer" index="0"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 9.0
-margin_top = 3.0
-margin_right = 220.0
-margin_bottom = 43.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Margin" ]
-
-[node name="Label" type="Label" parent="HUDContainer/AdvanceContainer/RoateContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.5
-anchor_right = 0.0
-anchor_bottom = 0.5
-margin_top = -7.0
-margin_right = 134.0
-margin_bottom = 7.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Roate Round (min: 1)"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="RoateLineEdit" type="LineEdit" parent="HUDContainer/AdvanceContainer/RoateContainer" index="1"]
-
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -70.0
-margin_top = -12.0
-margin_right = -10.0
-margin_bottom = 12.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
-text = "1"
-align = 1
-focus_mode = 2
-context_menu_enabled = true
-placeholder_text = "1"
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
-_sections_unfolded = [ "Margin", "Placeholder" ]
-
-[node name="Label2" type="Label" parent="HUDContainer/AdvanceContainer/RoateContainer" index="2"]
-
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -6.0
-margin_top = -7.0
-margin_right = 15.0
-margin_bottom = 7.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "+2"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="RoateSpeedContainer" type="Container" parent="HUDContainer/AdvanceContainer" index="1"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 9.0
-margin_top = 37.0
-margin_right = 220.0
-margin_bottom = 77.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Margin" ]
-
-[node name="Label" type="Label" parent="HUDContainer/AdvanceContainer/RoateSpeedContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.5
-anchor_right = 0.0
-anchor_bottom = 0.5
-margin_top = -7.0
-margin_right = 113.0
-margin_bottom = 7.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Roate Speed (sec)"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="RoateSpeedLineEdit" type="LineEdit" parent="HUDContainer/AdvanceContainer/RoateSpeedContainer" index="1"]
-
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -70.0
-margin_top = -12.0
-margin_right = -10.0
-margin_bottom = 12.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
-text = "0.15"
-align = 1
-focus_mode = 2
-context_menu_enabled = true
-placeholder_text = "0"
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
-_sections_unfolded = [ "Margin", "Placeholder" ]
-
-[node name="RewardContainer" type="Container" parent="HUDContainer/AdvanceContainer" index="2"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 9.0
-margin_top = 75.0
-margin_right = 220.0
-margin_bottom = 115.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Margin" ]
-
-[node name="Label" type="Label" parent="HUDContainer/AdvanceContainer/RewardContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.5
-anchor_right = 0.0
-anchor_bottom = 0.5
-margin_top = -7.0
-margin_right = 129.0
-margin_bottom = 7.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Reward Slot (max: 6)"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="RewardLineEdit" type="LineEdit" parent="HUDContainer/AdvanceContainer/RewardContainer" index="1"]
-
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -70.0
-margin_top = -12.0
-margin_right = -10.0
-margin_bottom = 12.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
-text = "1"
-align = 1
-focus_mode = 2
-context_menu_enabled = true
-placeholder_text = "1"
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
-_sections_unfolded = [ "Margin", "Placeholder" ]
-
-[node name="StartButton" type="Button" parent="HUDContainer/AdvanceContainer" index="3"]
+[node name="StartButton" type="Button" parent="GameContainer/HUDContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -63.0
-margin_bottom = -1.0
+margin_top = -200.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -382,49 +108,454 @@ group = null
 text = "Start"
 flat = false
 align = 1
+_sections_unfolded = [ "Margin" ]
 
-[node name="RewardCircle_1" parent="." index="2" instance=ExtResource( 3 )]
+[node name="ExactlyContainer" type="Container" parent="GameContainer/HUDContainer" index="2"]
 
-position = Vector2( 491.393, 128.124 )
+visible = false
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -200.0
+margin_bottom = -80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin" ]
 
-[node name="RewardCircle_2" parent="." index="3" instance=ExtResource( 3 )]
+[node name="RoateContainer" type="Container" parent="GameContainer/HUDContainer/ExactlyContainer" index="0"]
 
-position = Vector2( 740.104, 254.74 )
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin" ]
 
-[node name="RewardCircle_3" parent="." index="4" instance=ExtResource( 3 )]
+[node name="Label" type="Label" parent="GameContainer/HUDContainer/ExactlyContainer/RoateContainer" index="0"]
 
-position = Vector2( 712.972, 510.988 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_right = 148.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Round (min: 1 + 2)"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
 
-[node name="RewardCircle_4" parent="." index="5" instance=ExtResource( 3 )]
+[node name="NumberControlContainer" type="Container" parent="GameContainer/HUDContainer/ExactlyContainer/RoateContainer" index="1"]
 
-position = Vector2( 471.797, 652.678 )
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -120.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin" ]
 
-[node name="RewardCircle_5" parent="." index="6" instance=ExtResource( 3 )]
+[node name="DecrementDecreamentButton" type="Button" parent="GameContainer/HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer" index="0"]
 
-position = Vector2( 239.667, 538.12 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_right = 28.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "<"
+flat = false
+align = 1
 
-[node name="RewardCircle_6" parent="." index="7" instance=ExtResource( 3 )]
+[node name="InputLineEdit" type="LineEdit" parent="GameContainer/HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer" index="1"]
 
-position = Vector2( 239.667, 272.829 )
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -29.0
+margin_right = 29.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "1"
+align = 1
+editable = false
+focus_mode = 2
+context_menu_enabled = true
+placeholder_text = "1"
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Margin", "Placeholder" ]
 
-[connection signal="pressed" from="HUDContainer/RandomButton" to="." method="_on_RandomButton_pressed"]
+[node name="IncrementButton" type="Button" parent="GameContainer/HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer" index="2"]
 
-[connection signal="pressed" from="HUDContainer/ExactlyButton" to="." method="_on_ExactlyButton_pressed"]
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -28.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = ">"
+flat = false
+align = 1
 
-[connection signal="pressed" from="HUDContainer/BasicContainer/StartButton" to="." method="_on_BasicStartButton_pressed"]
+[node name="RoateSpeedContainer" type="Container" parent="GameContainer/HUDContainer/ExactlyContainer" index="1"]
 
-[connection signal="pressed" from="HUDContainer/AdvanceContainer/StartButton" to="." method="_on_AdvanceStartButton_pressed"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_top = 40.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin" ]
 
-[connection signal="finishplay" from="RewardCircle_1" to="." method="_on_RewardCircle_1_finishplay"]
+[node name="Label" type="Label" parent="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer" index="0"]
 
-[connection signal="finishplay" from="RewardCircle_2" to="." method="_on_RewardCircle_2_finishplay"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_right = 148.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Speed (max: 1 sec)"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
 
-[connection signal="finishplay" from="RewardCircle_3" to="." method="_on_RewardCircle_3_finishplay"]
+[node name="NumberControlContainer" type="Container" parent="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer" index="1"]
 
-[connection signal="finishplay" from="RewardCircle_4" to="." method="_on_RewardCircle_4_finishplay"]
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -120.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin" ]
 
-[connection signal="finishplay" from="RewardCircle_5" to="." method="_on_RewardCircle_5_finishplay"]
+[node name="DecrementDecreamentButton" type="Button" parent="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer" index="0"]
 
-[connection signal="finishplay" from="RewardCircle_6" to="." method="_on_RewardCircle_6_finishplay"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_right = 28.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "<"
+flat = false
+align = 1
+
+[node name="InputLineEdit" type="LineEdit" parent="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -29.0
+margin_right = 29.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "0.2"
+align = 1
+editable = false
+focus_mode = 2
+context_menu_enabled = true
+placeholder_text = "0.2"
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Margin", "Placeholder" ]
+
+[node name="IncrementButton" type="Button" parent="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer" index="2"]
+
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -28.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = ">"
+flat = false
+align = 1
+
+[node name="RewardContainer" type="Container" parent="GameContainer/HUDContainer/ExactlyContainer" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_top = 80.0
+margin_bottom = 110.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin" ]
+
+[node name="Label" type="Label" parent="GameContainer/HUDContainer/ExactlyContainer/RewardContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_right = 148.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Reward Slot (max: 8)"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
+
+[node name="NumberControlContainer" type="Container" parent="GameContainer/HUDContainer/ExactlyContainer/RewardContainer" index="1"]
+
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -120.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin" ]
+
+[node name="DecrementDecreamentButton" type="Button" parent="GameContainer/HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_right = 28.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "<"
+flat = false
+align = 1
+
+[node name="InputLineEdit" type="LineEdit" parent="GameContainer/HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -29.0
+margin_right = 29.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "1"
+align = 1
+editable = false
+focus_mode = 2
+context_menu_enabled = true
+placeholder_text = "1"
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Margin", "Placeholder", "Rect" ]
+
+[node name="IncrementButton" type="Button" parent="GameContainer/HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer" index="2"]
+
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -28.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = ">"
+flat = false
+align = 1
+
+[node name="RewardCircle_1" parent="GameContainer" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 348, 48 )
+
+[node name="RewardCircle_2" parent="GameContainer" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 548, 168 )
+
+[node name="RewardCircle_3" parent="GameContainer" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 598, 323 )
+
+[node name="RewardCircle_4" parent="GameContainer" index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 548, 498 )
+
+[node name="RewardCircle_5" parent="GameContainer" index="5" instance=ExtResource( 3 )]
+
+position = Vector2( 348, 598 )
+
+[node name="RewardCircle_6" parent="GameContainer" index="6" instance=ExtResource( 3 )]
+
+position = Vector2( 123, 498 )
+
+[node name="RewardCircle_7" parent="GameContainer" index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 48, 323 )
+
+[node name="RewardCircle_8" parent="GameContainer" index="8" instance=ExtResource( 3 )]
+
+position = Vector2( 123, 168 )
+
+[connection signal="pressed" from="GameContainer/HUDContainer/SwitchModeButton" to="." method="_on_SwitchModeButton_pressed"]
+
+[connection signal="pressed" from="GameContainer/HUDContainer/StartButton" to="." method="_on_StartButton_pressed"]
+
+[connection signal="pressed" from="GameContainer/HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer/DecrementDecreamentButton" to="." method="_on_RotateDecrementDecreamentButton_pressed"]
+
+[connection signal="pressed" from="GameContainer/HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer/IncrementButton" to="." method="_on_RotateIncrementButton_pressed"]
+
+[connection signal="pressed" from="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer/DecrementDecreamentButton" to="." method="_on_SpeedDecrementDecreamentButton_pressed"]
+
+[connection signal="pressed" from="GameContainer/HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer/IncrementButton" to="." method="_on_SpeedIncrementButton_pressed"]
+
+[connection signal="pressed" from="GameContainer/HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer/DecrementDecreamentButton" to="." method="_on_RewardSlotDecrementDecreamentButton_pressed"]
+
+[connection signal="pressed" from="GameContainer/HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer/IncrementButton" to="." method="_on_RewardSlotIncrementButton_pressed"]
+
+[connection signal="finishplay" from="GameContainer/RewardCircle_1" to="." method="_on_RewardCircle_1_finishplay"]
+
+[connection signal="finishplay" from="GameContainer/RewardCircle_2" to="." method="_on_RewardCircle_2_finishplay"]
+
+[connection signal="finishplay" from="GameContainer/RewardCircle_3" to="." method="_on_RewardCircle_3_finishplay"]
+
+[connection signal="finishplay" from="GameContainer/RewardCircle_4" to="." method="_on_RewardCircle_4_finishplay"]
+
+[connection signal="finishplay" from="GameContainer/RewardCircle_5" to="." method="_on_RewardCircle_5_finishplay"]
+
+[connection signal="finishplay" from="GameContainer/RewardCircle_6" to="." method="_on_RewardCircle_6_finishplay"]
+
+[connection signal="finishplay" from="GameContainer/RewardCircle_7" to="." method="_on_RewardCircle_7_finishplay"]
+
+[connection signal="finishplay" from="GameContainer/RewardCircle_8" to="." method="_on_RewardCircle_8_finishplay"]
 
 
