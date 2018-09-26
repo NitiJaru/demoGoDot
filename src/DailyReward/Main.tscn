@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://img/background.jpg" type="Texture" id=2]
 [ext_resource path="res://RewardSlot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sounds/background.wav" type="AudioStream" id=4]
 
 [node name="Main" type="Node" index="0"]
 
@@ -30,6 +31,7 @@ _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
 [node name="GameContainer" type="Container" parent="." index="1"]
 
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -579,6 +581,17 @@ text = ">"
 flat = false
 align = 1
 
+[node name="BackgroundSound" type="AudioStreamPlayer2D" parent="." index="3"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
 [connection signal="finish_play_animation" from="GameContainer/Reward_1" to="." method="_on_Reward_1_finish_play_animation"]
 
 [connection signal="finish_play_animation" from="GameContainer/Reward_2" to="." method="_on_Reward_2_finish_play_animation"]
@@ -610,5 +623,7 @@ align = 1
 [connection signal="pressed" from="HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer/DecrementButton" to="." method="_on_RewardSlotDecrementButton_pressed"]
 
 [connection signal="pressed" from="HUDContainer/ExactlyContainer/RewardContainer/NumberControlContainer/IncrementButton" to="." method="_on_RewardSlotIncrementButton_pressed"]
+
+[connection signal="finished" from="BackgroundSound" to="." method="_on_BackgroundSound_finished"]
 
 

@@ -93,18 +93,6 @@ func set_animated_timer(number):
 
 func calculate_game(number):
 	var isOutOfRound = _rotate_round < 0
-#
-#	if(!_isCompletedRoateRound && !isOutOfRound):play_animation(number)
-#	elif(!_isCompletedRoateRound):
-#		_isCompletedRoateRound = true
-#		_rotate_round = (_rotate_round_input - 2)
-#		is_increment_speed_management(true)
-#		start_round()
-#	elif(_reward_slot != number && !isOutOfRound):
-#		is_increment_speed_management(true)
-#		play_animation(number)
-#	else:game_finish(number)
-		
 	if(!_isCompletedRoateRound && !isOutOfRound):play_animation(number)
 	elif(!_isCompletedRoateRound):
 		_isCompletedRoateRound = true
@@ -173,11 +161,10 @@ func is_increment_speed_management(isIncrement):
 	_animated_speed = float($HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer/InputLineEdit.text)
 	if(isIncrement):
 		_animated_speed += _minimum_speed_animated
-		if(_animated_speed > _maximum_animated_speed): _animated_speed = _maximum_animated_speed
+		if(_animated_speed > _maximum_animated_speed):_animated_speed = _maximum_animated_speed
 	else:
 		var minimum_animated_speed_can_decrement = 0.4
-		if(_animated_speed > minimum_animated_speed_can_decrement):
-			 _animated_speed -= _minimum_speed_animated
+		if(_animated_speed > minimum_animated_speed_can_decrement):_animated_speed -= _minimum_speed_animated
 
 # Control Reward slot number
 func is_increment_reward_slot_management(isIncrement):
@@ -216,3 +203,6 @@ func _on_SwitchModeButton_pressed():switch_HUD_mode()
 
 # Call start_game function when this function work
 func _on_StartButton_pressed():start_game()
+
+# Continue play background sound
+func _on_BackgroundSound_finished(): $BackgroundSound.play()
