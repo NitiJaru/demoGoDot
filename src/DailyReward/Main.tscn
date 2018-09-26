@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://img/background.jpg" type="Texture" id=2]
-[ext_resource path="res://RewardCircle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://RewardSlot.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Node" index="0"]
 
@@ -34,10 +34,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -323.0
-margin_top = -323.0
-margin_right = 323.0
-margin_bottom = 323.0
+margin_left = -300.0
+margin_top = -300.0
+margin_right = 300.0
+margin_bottom = 300.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -46,37 +46,88 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin" ]
 
-[node name="RewardCircle_1" parent="GameContainer" index="0" instance=ExtResource( 3 )]
+[node name="Reward_1" parent="GameContainer" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 348, 48 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = -250.0
+margin_bottom = -250.0
+_sections_unfolded = [ "Margin", "Transform" ]
 
-[node name="RewardCircle_2" parent="GameContainer" index="1" instance=ExtResource( 3 )]
+[node name="Reward_2" parent="GameContainer" index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 548, 160 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -175.0
+margin_bottom = -175.0
+_sections_unfolded = [ "Margin", "Transform" ]
 
-[node name="RewardCircle_3" parent="GameContainer" index="2" instance=ExtResource( 3 )]
+[node name="Reward_3" parent="GameContainer" index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 598, 323 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 250.0
+margin_right = 250.0
+_sections_unfolded = [ "Margin", "Transform" ]
 
-[node name="RewardCircle_4" parent="GameContainer" index="3" instance=ExtResource( 3 )]
+[node name="Reward_4" parent="GameContainer" index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 548, 498 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = 175.0
+_sections_unfolded = [ "Margin", "Transform" ]
 
-[node name="RewardCircle_5" parent="GameContainer" index="4" instance=ExtResource( 3 )]
+[node name="Reward_5" parent="GameContainer" index="4" instance=ExtResource( 3 )]
 
-position = Vector2( 348, 598 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 250.0
+_sections_unfolded = [ "Margin", "Transform" ]
 
-[node name="RewardCircle_6" parent="GameContainer" index="5" instance=ExtResource( 3 )]
+[node name="Reward_6" parent="GameContainer" index="5" instance=ExtResource( 3 )]
 
-position = Vector2( 123, 498 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = 175.0
+margin_right = -200.0
+_sections_unfolded = [ "Margin", "Transform" ]
 
-[node name="RewardCircle_7" parent="GameContainer" index="6" instance=ExtResource( 3 )]
+[node name="Reward_7" parent="GameContainer" index="6" instance=ExtResource( 3 )]
 
-position = Vector2( 48, 323 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_right = -250.0
+_sections_unfolded = [ "Margin", "Transform" ]
 
-[node name="RewardCircle_8" parent="GameContainer" index="7" instance=ExtResource( 3 )]
+[node name="Reward_8" parent="GameContainer" index="7" instance=ExtResource( 3 )]
 
-position = Vector2( 123, 160 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -175.0
+margin_right = -200.0
+margin_bottom = -175.0
+_sections_unfolded = [ "Margin", "Transform" ]
 
 [node name="HUDContainer" type="Container" parent="." index="2"]
 
@@ -85,9 +136,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -113.0
+margin_left = -134.5
 margin_top = -135.0
-margin_right = 156.0
+margin_right = 134.5
 margin_bottom = 135.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -528,21 +579,21 @@ text = ">"
 flat = false
 align = 1
 
-[connection signal="finishplay" from="GameContainer/RewardCircle_1" to="." method="_on_RewardCircle_1_finishplay"]
+[connection signal="finish_play_animation" from="GameContainer/Reward_1" to="." method="_on_Reward_1_finish_play_animation"]
 
-[connection signal="finishplay" from="GameContainer/RewardCircle_2" to="." method="_on_RewardCircle_2_finishplay"]
+[connection signal="finish_play_animation" from="GameContainer/Reward_2" to="." method="_on_Reward_2_finish_play_animation"]
 
-[connection signal="finishplay" from="GameContainer/RewardCircle_3" to="." method="_on_RewardCircle_3_finishplay"]
+[connection signal="finish_play_animation" from="GameContainer/Reward_3" to="." method="_on_Reward_3_finish_play_animation"]
 
-[connection signal="finishplay" from="GameContainer/RewardCircle_4" to="." method="_on_RewardCircle_4_finishplay"]
+[connection signal="finish_play_animation" from="GameContainer/Reward_4" to="." method="_on_Reward_4_finish_play_animation"]
 
-[connection signal="finishplay" from="GameContainer/RewardCircle_5" to="." method="_on_RewardCircle_5_finishplay"]
+[connection signal="finish_play_animation" from="GameContainer/Reward_5" to="." method="_on_Reward_5_finish_play_animation"]
 
-[connection signal="finishplay" from="GameContainer/RewardCircle_6" to="." method="_on_RewardCircle_6_finishplay"]
+[connection signal="finish_play_animation" from="GameContainer/Reward_6" to="." method="_on_Reward_6_finish_play_animation"]
 
-[connection signal="finishplay" from="GameContainer/RewardCircle_7" to="." method="_on_RewardCircle_7_finishplay"]
+[connection signal="finish_play_animation" from="GameContainer/Reward_7" to="." method="_on_Reward_7_finish_play_animation"]
 
-[connection signal="finishplay" from="GameContainer/RewardCircle_8" to="." method="_on_RewardCircle_8_finishplay"]
+[connection signal="finish_play_animation" from="GameContainer/Reward_8" to="." method="_on_Reward_8_finish_play_animation"]
 
 [connection signal="pressed" from="HUDContainer/SwitchModeButton" to="." method="_on_SwitchModeButton_pressed"]
 
