@@ -4,14 +4,9 @@ export (PackedScene) var Mob
 var score
 
 func _ready():
-    randomize()
-    pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
+	# Set full screen size
+	OS.set_window_maximized(true)
+#	randomize()
 
 func game_over():
     $ScoreTimer.stop()
@@ -23,7 +18,7 @@ func game_over():
 
 func new_game():
     score = 0
-    $Player.start()
+    $Player.start($StartPosition2D.position)
     $StartTimer.start()
     $HUD.update_score(score)
     $HUD.show_message("Get Ready")
@@ -38,7 +33,6 @@ func _on_ScoreTimer_timeout():
     score += 1
     $HUD.update_score(score)
     pass # replace with function body
-
 
 func _on_MobTimer_timeout():
     # Choose a random location on Path2D.
@@ -56,7 +50,6 @@ func _on_MobTimer_timeout():
     # Choose the velocity.
     mob.set_linear_velocity(Vector2(rand_range(mob.min_speed, mob.max_speed), 0).rotated(direction))
     pass # replace with function body
-
 
 func _on_BackgroundSound_finished():
     $BackgroundSound.play()

@@ -12,7 +12,7 @@
 
 bake_interval = 5.0
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -0.0228882, -0.0706525, 0, 0, 0, 0, 480.019, 0.111965, 0, 0, 0, 0, 481.059, 719.409, 0, 0, 0, 0, -0.276482, 719.897, 0, 0, 0, 0, -0.0228882, -0.0706525 )
+"points": PoolVector2Array( 0, 0, 0, 0, -0.0228882, -0.0706525, 0, 0, 0, 0, 640.328, -0.22684, 0, 0, 0, 0, 640.472, 1135.77, 0, 0, 0, 0, -0.0416679, 1136.05, 0, 0, 0, 0, -0.0228882, -0.0706525 )
 }
 
 [node name="Main" type="Node" index="0"]
@@ -22,8 +22,8 @@ Mob = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( 240.074, 359.651 )
-scale = Vector2( 0.689027, 0.686889 )
+position = Vector2( 320.225, 568.11 )
+scale = Vector2( 0.918666, 1.08484 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
@@ -55,6 +55,7 @@ autostart = false
 editor/display_folded = true
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
 curve = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" index="0"]
 
@@ -87,6 +88,11 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[node name="StartPosition2D" type="Position2D" parent="." index="9"]
+
+position = Vector2( 321.504, 568.388 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 

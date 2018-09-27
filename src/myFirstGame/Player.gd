@@ -11,8 +11,8 @@ func _ready():
 	pass
 
 func _input(event):
-   if event is InputEventMouseMotion:
-      position = event.position
+	if event is InputEventMouseMotion:
+		position = event.position
 
 #func _process(delta):
 #    var velocity = Vector2() # The player's movement vector.
@@ -47,6 +47,7 @@ func _on_Player_body_entered(body):
     $CollisionShape2D.disabled = true
     pass # replace with function body
 
-func start():
-    show()
-    $CollisionShape2D.disabled = false
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
