@@ -22,6 +22,9 @@ var _isCompletedRoateRound
 var _isExactlyMode = false
 
 func _ready():
+	# Set full screen size
+	OS.set_window_maximized(true)
+	
 	# Set Reward images
 	random_reward_image()
 	

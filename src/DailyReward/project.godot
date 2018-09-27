@@ -16,7 +16,11 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/height=768
+window/size/width=640
+window/size/height=1136
+window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [rendering]
 
