@@ -5,10 +5,12 @@ var _rotate_round = 1
 var _rotate_round_input = 1
 
 # Animated speed control
-var _minimum_speed_animated = 0.2
+var _minimum_speed_animated = 0.1
 var _maximum_animated_speed = 1
-var _animated_speed = 0.2
-var _animated_speed_input = 0.2
+var _acceleration_speed_update = 0.05
+var _minimum_animated_speed_can_decrement = 0.15
+var _animated_speed = _minimum_speed_animated
+var _animated_speed_input = _minimum_speed_animated
 
 # Reward control
 var _minimumRewardSlot = 1
@@ -28,6 +30,8 @@ func _ready():
 	# Set Reward images
 	random_reward_image()
 	
+	# Set display
+	$HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer/InputLineEdit.text = str(_minimum_speed_animated)	
 	$HUDContainer/SwitchModeButton.text = "Switch to Random reward"
 	$HUDContainer/ExactlyContainer.hide()
 
@@ -55,7 +59,7 @@ func init_game_random():
 	_reward_slot = randomRewardSlot
 	
 	# Reset animate speed
-	_animated_speed = 0.2
+	_animated_speed = _minimum_speed_animated
 
 func init_game_exactly():
 	# Set rotate prefix
@@ -70,8 +74,8 @@ func init_game_exactly():
 	
 	# Set animate speed
 	var animtion_speed_input = float($HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer/InputLineEdit.text)
-	if(animtion_speed_input < _minimum_speed_animated): _animated_speed = _minimum_speed_animated
-	elif(animtion_speed_input > _maximum_animated_speed): _animated_speed = _maximum_animated_speed
+	if(animtion_speed_input < _minimum_speed_animated): _animated_speed_input = _minimum_speed_animated
+	elif(animtion_speed_input > _maximum_animated_speed): _animated_speed_input = _maximum_animated_speed
 	else: _animated_speed_input = animtion_speed_input
 	_animated_speed = _animated_speed_input
 	
@@ -91,6 +95,7 @@ func random_reward_image():
 		$GameContainer.get_child(index).init(reward_image)
 
 func set_animated_timer(number):
+	print("Update speed: " + str(number))
 	for index in $GameContainer.get_child_count():
 		$GameContainer.get_child(index).set_playtimer(number)
 
@@ -156,18 +161,17 @@ func is_increment_rotate_round_management(isIncrement):
 	$HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer/InputLineEdit.text = str(_rotate_round_input)
 
 # Control Rotate speed number
-func is_increment_speed_management_and_update_gui(isIncrement):
+func is_increment_speed_update_gui(isIncrement):
+	_animated_speed = float($HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer/InputLineEdit.text)	
 	is_increment_speed_management(isIncrement)
 	$HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer/InputLineEdit.text = str(_animated_speed)
-
 func is_increment_speed_management(isIncrement):
-	_animated_speed = float($HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer/InputLineEdit.text)
 	if(isIncrement):
-		_animated_speed += _minimum_speed_animated
+		_animated_speed += _acceleration_speed_update
 		if(_animated_speed > _maximum_animated_speed):_animated_speed = _maximum_animated_speed
 	else:
-		var minimum_animated_speed_can_decrement = 0.4
-		if(_animated_speed > minimum_animated_speed_can_decrement):_animated_speed -= _minimum_speed_animated
+		if(_animated_speed > _minimum_animated_speed_can_decrement):_animated_speed -= _acceleration_speed_update
+	set_animated_timer(_animated_speed)
 
 # Control Reward slot number
 func is_increment_reward_slot_management(isIncrement):
@@ -184,8 +188,8 @@ func _on_RotateDecrementButton_pressed():is_increment_rotate_round_management(fa
 func _on_RotateIncrementButton_pressed():is_increment_rotate_round_management(true)
 
 # Detech on Rotate speed numbers button was been press
-func _on_SpeedDecrementButton_pressed():is_increment_speed_management_and_update_gui(false)
-func _on_SpeedIncrementButton_pressed():is_increment_speed_management_and_update_gui(true)
+func _on_SpeedDecrementButton_pressed():is_increment_speed_update_gui(false)
+func _on_SpeedIncrementButton_pressed():is_increment_speed_update_gui(true)
 
 # Detech on Reward slot numbers button was been press
 func _on_RewardSlotDecrementButton_pressed():is_increment_reward_slot_management(false)
