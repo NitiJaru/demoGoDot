@@ -1,12 +1,14 @@
 extends Node
 
 # Rotate control
+var _minimum_rotate_round = 1
+var prefixRotateTimes
 var _rotate_round = 1
 var _rotate_round_input = 1
 
 # Animated speed control
 var _minimum_speed_animated = 0.1
-var _maximum_animated_speed = 1
+var _maximum_animated_speed = 0.8
 var _acceleration_speed_update = 0.05
 var _minimum_animated_speed_can_decrement = 0.15
 var _animated_speed = _minimum_speed_animated
@@ -16,9 +18,6 @@ var _animated_speed_input = _minimum_speed_animated
 var _minimumRewardSlot = 1
 var _maximumRewardSlot = 8
 var _reward_slot = 1
-
-# Is play prefix rotate round completed
-var _isCompletedRoateRound
 
 # Is switch HUD to ExactlyMode
 var _isExactlyMode = false
@@ -36,9 +35,6 @@ func _ready():
 	$HUDContainer/ExactlyContainer.hide()
 
 func init_game():
-	# Reset isCompletedRoateRound for new game
-	_isCompletedRoateRound = false
-	
 	if(_isExactlyMode): init_game_exactly()
 	else: init_game_random()
 	
@@ -47,12 +43,11 @@ func init_game():
 
 func init_game_random():
 	# Random rotate prefix
-	var randomRotateRound = randi()%3+1
-	_rotate_round = randomRotateRound
+	prefixRotateTimes = randi()%3+1
 	
 	# Random rotate times
 	var randomRotateRoundInput = randi()%2+1
-	_rotate_round_input = randomRotateRoundInput
+	_rotate_round = prefixRotateTimes + randomRotateRoundInput
 	
 	# Random reward slot
 	var randomRewardSlot = randi()%8+1
@@ -63,14 +58,14 @@ func init_game_random():
 
 func init_game_exactly():
 	# Set rotate prefix
-	var prefixRotateTimes = 2
-	_rotate_round = prefixRotateTimes
+	prefixRotateTimes = 2
 	
 	# Set rotate times
 	var minimumRotateTimes = 1
 	var rotateTimes = int($HUDContainer/ExactlyContainer/RoateContainer/NumberControlContainer/InputLineEdit.text)
 	if(rotateTimes < minimumRotateTimes): _rotate_round_input = minimumRotateTimes
 	else: _rotate_round_input = rotateTimes
+	_rotate_round = prefixRotateTimes + (_rotate_round_input - 1)
 	
 	# Set animate speed
 	var animtion_speed_input = float($HUDContainer/ExactlyContainer/RoateSpeedContainer/NumberControlContainer/InputLineEdit.text)
@@ -95,22 +90,19 @@ func random_reward_image():
 		$GameContainer.get_child(index).init(reward_image)
 
 func set_animated_timer(number):
-	print("Update speed: " + str(number))
 	for index in $GameContainer.get_child_count():
 		$GameContainer.get_child(index).set_playtimer(number)
 
 func calculate_game(number):
-	var isOutOfRound = _rotate_round < 0
-	if(!_isCompletedRoateRound && !isOutOfRound):play_animation(number)
-	elif(!_isCompletedRoateRound):
-		_isCompletedRoateRound = true
-		_rotate_round = (_rotate_round_input - 2)
-		is_increment_speed_management(true)
-		start_round()
-	elif((_isCompletedRoateRound && _reward_slot != number) || !isOutOfRound):
-		is_increment_speed_management(true)
+	var hasPrefixRoundLeft = _rotate_round >= prefixRotateTimes	
+	var hasRoundLeft = _rotate_round >= _minimum_rotate_round
+	var isEqualRewardSlot = _reward_slot == number
+	var isContiuneRound = hasPrefixRoundLeft || hasRoundLeft || !isEqualRewardSlot
+	
+	if(isContiuneRound):
+		if(!hasPrefixRoundLeft):is_increment_speed_management(true)
 		play_animation(number)
-	else:game_finish(number)
+	else: game_finish(number)
 
 func play_animation(number):
 	var isLastSlot = number == 8

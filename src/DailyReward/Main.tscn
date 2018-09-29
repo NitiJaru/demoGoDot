@@ -185,6 +185,7 @@ _sections_unfolded = [ "Margin" ]
 
 [node name="ExactlyContainer" type="Container" parent="HUDContainer" index="2"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 1.0
@@ -202,7 +203,6 @@ _sections_unfolded = [ "Margin" ]
 
 [node name="RoateContainer" type="Container" parent="HUDContainer/ExactlyContainer" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -229,7 +229,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Round (min: 1 + 2)"
+text = "Round (plus prefix: 2)"
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -351,7 +351,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Speed (max: 1 sec)"
+text = "Speed (max: 0.8 sec)"
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -360,6 +360,7 @@ _sections_unfolded = [ "Margin" ]
 
 [node name="NumberControlContainer" type="Container" parent="HUDContainer/ExactlyContainer/RoateSpeedContainer" index="1"]
 
+editor/display_folded = true
 anchor_left = 1.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -446,7 +447,6 @@ align = 1
 
 [node name="RewardContainer" type="Container" parent="HUDContainer/ExactlyContainer" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
